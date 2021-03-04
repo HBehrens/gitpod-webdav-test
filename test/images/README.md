@@ -1,0 +1,1 @@
+this folder contains generated screenshots after running `npm test`

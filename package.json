@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "./node_modules/.bin/esbuild src/index.ts --sourcemap=external --servedir=src --outdir=src/js --minify"
+    "dev": "./node_modules/.bin/esbuild src/index.ts --sourcemap=external --servedir=src --outdir=src/js --minify",
+    "test": "./node_modules/.bin/ts-node test/screenshots.ts"
   },
   "repository": {
     "type": "git",
