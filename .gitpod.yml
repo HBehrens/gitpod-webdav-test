@@ -1,0 +1,17 @@
+# List the ports you want to expose and what to do when they are served. See https://www.gitpod.io/docs/config-ports/
+ports:
+  # esbuild serve
+  - port: 8000
+    onOpen: open-preview
+  # WebDAV
+  - port: 5000
+    onOpen: ignore
+
+# List the start up tasks. You can start them in parallel in multiple terminals. See https://www.gitpod.io/docs/config-start-tasks/
+tasks:
+  - init: npm install
+    command: npm run dev
+  - command: >
+      echo "WebDAV server address is:";
+      echo "   $(gp url 5000)";
+      ./bin/webdav/linux-amd64-webdav/webdav -c bin/webdav/unsafe-example.yaml;

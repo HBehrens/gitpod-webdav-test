@@ -1,0 +1,22 @@
+{
+  "name": "gitpod-webdav-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "./node_modules/.bin/esbuild src/index.ts --sourcemap=external --servedir=src --outdir=src/js --minify"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HBehrens/gitpod-webdav-test.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HBehrens/gitpod-webdav-test/issues"
+  },
+  "homepage": "https://github.com/HBehrens/gitpod-webdav-test#readme",
+  "dependencies": {
+    "esbuild": "^0.8.55"
+  }
+}
