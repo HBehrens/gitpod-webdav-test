@@ -27,3 +27,4 @@ With the demo at hand, I encountered these problems
 * Some local tools perform write operations (not investigated yet) that are incompatible with the WebDavServer
 * macOS struggles with unmounting after the mounted Gitpod workspace was stopped
 * macOS seems to fail on write operations unless you require WebDAV authentication
+* macOS persists [a lot of meta data](https://apple.stackexchange.com/a/51147). See `.theia/settings.json` how to hide this fom the project explorer
