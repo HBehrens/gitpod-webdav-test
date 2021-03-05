@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "./node_modules/.bin/esbuild src/index.ts --sourcemap=external --servedir=src --outdir=src/js --minify",
+    "dev": "./node_modules/.bin/esbuild src/index.ts --sourcemap --servedir=src --outdir=src/js --minify",
     "test": "./node_modules/.bin/ts-node test/screenshots.ts"
   },
   "repository": {
@@ -18,8 +18,10 @@
   },
   "homepage": "https://github.com/HBehrens/gitpod-webdav-test#readme",
   "dependencies": {
+    "chokidar": "^3.5.1",
     "esbuild": "^0.8.55",
     "merge-img": "^2.1.3",
+    "press-any-key": "^0.1.1",
     "puppeteer": "^8.0.0",
     "ts-node": "^9.1.1"
   }
