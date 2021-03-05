@@ -19,6 +19,7 @@
   "homepage": "https://github.com/HBehrens/gitpod-webdav-test#readme",
   "dependencies": {
     "esbuild": "^0.8.55",
+    "merge-img": "^2.1.3",
     "puppeteer": "^8.0.0",
     "ts-node": "^9.1.1"
   }

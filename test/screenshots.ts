@@ -1,10 +1,11 @@
 import * as puppeteer from 'puppeteer';
+import * as mergeImages from 'merge-img';
 
-(async () => {
-    const browser = await puppeteer.launch({ args: ['--no-sandbox'] });
+// console.log(mergeImg);
+// process.exit(0);
 
+async function takeScreenshots(browser: puppeteer.Browser, url: string) {
     const page = await browser.newPage();
-    const url = 'http://localhost:8000';
     const widths = [
         2560, 	// large 27" cinema displays
         // 1920, 	// large desktop
@@ -18,13 +19,26 @@ import * as puppeteer from 'puppeteer';
 
     await page.goto(url, { waitUntil: 'networkidle2' });
 
+    // const filenames = [] as mergeImages.ImageDescriptor[];
+    const mergeImgElements = [];
+
     for (const width of widths) {
 		await page.setViewport({
 			width: width,
-			height: 500 // this is minimum height
-		});        
-        await page.screenshot({ path: `${__dirname}/images/screenshot-${width}.png`, fullPage: true });
+			height: 500,
+        });        
+        const filename = `${__dirname}/images/screenshot-${width}.png`;
+        mergeImgElements.push({src: filename, offsetX: 1});
+        await page.screenshot({ path: filename, fullPage: true });
     }
+
+    const img = await mergeImages(mergeImgElements);
+    img.write(`${__dirname}/images/all.png`);
+}
+
+(async () => {
+    const browser = await puppeteer.launch({ args: ['--no-sandbox'] });
+    await takeScreenshots(browser, "http://localhost:8000");
 
     await browser.close();
 })().catch((e: Error) => {
